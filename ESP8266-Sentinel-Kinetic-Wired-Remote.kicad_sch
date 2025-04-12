@@ -3086,6 +3086,89 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "RF_Module:ESP-12F"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4522,10 +4605,22 @@
 		(uuid "45ded385-81fb-437c-a85e-ada7e8c785c9")
 	)
 	(junction
+		(at 262.89 22.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "671361ea-74cc-43e5-babf-d8a3e4d2ede7")
+	)
+	(junction
 		(at 20.32 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "853a0095-2e04-457b-98d7-c700a6679a03")
+	)
+	(junction
+		(at 259.08 26.67)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "aadb2fdd-1a8b-4f99-a510-d6232ce496d5")
 	)
 	(junction
 		(at 31.75 83.82)
@@ -4550,6 +4645,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d03d51e7-93c2-43c4-a334-97d6759bff3f")
+	)
+	(junction
+		(at 262.89 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d6c3897a-b750-49b5-89b1-7106305a1e2f")
 	)
 	(junction
 		(at 220.98 49.53)
@@ -4582,6 +4683,10 @@
 	(no_connect
 		(at 71.12 83.82)
 		(uuid "37956bf2-48fd-4d19-83f6-aec3982196c8")
+	)
+	(no_connect
+		(at 101.6 83.82)
+		(uuid "39a1e415-08df-496f-97fa-923f423a2125")
 	)
 	(no_connect
 		(at 223.52 57.15)
@@ -4626,6 +4731,10 @@
 	(no_connect
 		(at 71.12 73.66)
 		(uuid "f723a245-8203-4cae-ab90-59e4f905bc35")
+	)
+	(no_connect
+		(at 71.12 68.58)
+		(uuid "fd8383bc-f308-4b3d-bec8-8dc506da37cc")
 	)
 	(wire
 		(pts
@@ -4816,16 +4925,6 @@
 			(type default)
 		)
 		(uuid "29a05460-0544-4363-94a1-b2cd1ad1e1c9")
-	)
-	(wire
-		(pts
-			(xy 64.77 68.58) (xy 71.12 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2d92643b-a696-4df2-827e-e3bcc26107c6")
 	)
 	(wire
 		(pts
@@ -5349,6 +5448,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 172.72) (xy 41.91 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b4e2c489-1888-4c2d-b532-b0aa6c29e410")
+	)
+	(wire
+		(pts
 			(xy 210.82 54.61) (xy 215.9 54.61)
 		)
 		(stroke
@@ -5479,6 +5588,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 165.1) (xy 41.91 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5002c25-d359-4d5a-a692-de722907aee4")
+	)
+	(wire
+		(pts
 			(xy 210.82 46.99) (xy 214.63 46.99)
 		)
 		(stroke
@@ -5519,13 +5638,13 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 83.82) (xy 101.6 83.82)
+			(xy 38.1 170.18) (xy 41.91 170.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ebda0164-14ae-4e4e-950b-73fb899aaaf1")
+		(uuid "ed741ebf-2766-4bee-b200-59c89b174402")
 	)
 	(wire
 		(pts
@@ -5597,6 +5716,16 @@
 		)
 		(uuid "fbd700ff-6d1a-4d41-b075-21d86ae67a4c")
 	)
+	(wire
+		(pts
+			(xy 38.1 167.64) (xy 41.91 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc7145d4-7875-4fb4-a282-82376ae87018")
+	)
 	(label "RX"
 		(at 64.77 106.68 180)
 		(effects
@@ -5626,6 +5755,16 @@
 			(justify right bottom)
 		)
 		(uuid "0a565f27-a908-479f-868c-3444ea2695ca")
+	)
+	(label "GPIO0"
+		(at 22.86 125.73 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0ba37996-592e-4514-a9e3-f9e524ab91dd")
 	)
 	(label "SDA"
 		(at 110.49 68.58 180)
@@ -5747,25 +5886,15 @@
 		)
 		(uuid "5e5418c9-506e-4fad-8fd5-5fc8d723344e")
 	)
-	(label "A0"
-		(at 64.77 68.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "62501c48-d382-4700-8c0e-0fdea9c5a1e1")
-	)
-	(label "RS232_RX"
-		(at 38.1 170.18 180)
+	(label "GPIO12"
+		(at 38.1 125.73 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "66e4afee-834b-4009-b88b-0a0b1a7a582c")
+		(uuid "68289945-c005-4a98-8841-b41d63274cd9")
 	)
 	(label "GPIO13"
 		(at 110.49 76.2 180)
@@ -5837,45 +5966,15 @@
 		)
 		(uuid "8d7059af-eff8-47df-8c42-6f1f50735031")
 	)
-	(label "GPIO12"
-		(at 38.1 125.73 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "9d3d7afd-7b06-4ddd-8682-7f721bf15aa1")
-	)
 	(label "RS232_TX"
-		(at 38.1 167.64 180)
+		(at 38.1 170.18 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "9d7600a0-4919-4695-85bd-631128d2035c")
-	)
-	(label "GPIO0"
-		(at 22.86 125.73 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "acec0677-b3e4-4311-9b9f-85c566edd84a")
-	)
-	(label "GPIO16"
-		(at 110.49 83.82 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "aec800cf-d460-4c6c-b3eb-af42efdc7de2")
+		(uuid "aad6cf24-3558-4cdf-ab5d-f29cb26e4d51")
 	)
 	(label "GPIO2"
 		(at 35.56 64.77 180)
@@ -5906,6 +6005,16 @@
 			(justify right bottom)
 		)
 		(uuid "e158a3a6-404f-41fb-bd5e-5ec0dbeea139")
+	)
+	(label "RS232_RX"
+		(at 38.1 167.64 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e378b833-2df0-4898-b19c-63ec30463142")
 	)
 	(label "GPIO0"
 		(at 99.06 111.76 180)
@@ -6212,6 +6321,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 115.57 173.99 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0be8fff8-b6a2-4b0c-aa62-3bc5ac5ef5f2")
+		(property "Reference" "H3"
+			(at 118.11 172.7199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 118.11 175.2599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 115.57 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 115.57 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 115.57 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "ESP8266-Sentinel-Kinetic-Wired-Remote"
+				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
+					(reference "H3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 161.29 63.5 0)
 		(unit 1)
@@ -6272,119 +6445,6 @@
 			(project "ESP8266-Sentinel-Kinetic-Wired-Remote"
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
 					(reference "#PWR024")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Display_Character:WC1602A")
-		(at 233.68 52.07 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0e6bc32d-9872-46b7-8d8f-89c0ad8bef52")
-		(property "Reference" "DS?"
-			(at 235.8233 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "WC1602A"
-			(at 235.8233 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Display:LCD-016N002L"
-			(at 233.68 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.wincomlcd.com/pdf/WC1602A-SFYLYHTC06.pdf"
-			(at 251.46 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "LCD 16x2 Alphanumeric , 8 bit parallel bus, 5V VDD"
-			(at 233.68 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "12"
-			(uuid "a598d300-b612-4bf9-b16b-a6a56925ea3b")
-		)
-		(pin "5"
-			(uuid "563e5bdf-571f-43a4-8803-b89d5b08c60c")
-		)
-		(pin "13"
-			(uuid "2590259b-1245-4e8e-a32f-b6820790c894")
-		)
-		(pin "14"
-			(uuid "aeb39ad0-3267-4436-8368-3b1941dcdb36")
-		)
-		(pin "2"
-			(uuid "35feda5a-c3df-45a3-a3c7-3201ca5b9616")
-		)
-		(pin "1"
-			(uuid "38f8fa1d-d510-428f-8297-fcc8a0e55589")
-		)
-		(pin "3"
-			(uuid "acdc51e6-4a59-49be-bae7-7da49a17d450")
-		)
-		(pin "15"
-			(uuid "0c23751b-672c-4692-a156-067f0b92113b")
-		)
-		(pin "16"
-			(uuid "7ba368fc-f360-4296-8c8a-cfdf7ae2bea6")
-		)
-		(pin "11"
-			(uuid "bc3f7a9d-0ed5-4cd0-a3f7-53cc28340a3e")
-		)
-		(pin "9"
-			(uuid "ccb44e75-bb13-4d50-8b39-751841c80979")
-		)
-		(pin "6"
-			(uuid "3c20905b-d659-4365-8f5f-504569a74329")
-		)
-		(pin "4"
-			(uuid "83f1bdb4-df50-441c-9e5a-a43f39360cdd")
-		)
-		(pin "10"
-			(uuid "567f639e-4433-4494-bf37-45f4e452e2d2")
-		)
-		(pin "8"
-			(uuid "a4086819-bf54-47ee-a9a0-76e2aec9c7df")
-		)
-		(pin "7"
-			(uuid "4a15e9d6-3d38-40ad-9130-16120b0b51e7")
-		)
-		(instances
-			(project ""
-				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "DS?")
 					(unit 1)
 				)
 			)
@@ -6606,7 +6666,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "15d2e545-d7aa-4981-9b32-75088d4c7956")
-		(property "Reference" "J?"
+		(property "Reference" "J2"
 			(at 49.53 167.6399 0)
 			(effects
 				(font
@@ -6666,7 +6726,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "J?")
+					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -6880,7 +6940,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d4432b3-1cb9-4ca4-85b0-24c840996268")
-		(property "Reference" "JP?"
+		(property "Reference" "JP4"
 			(at 256.54 39.3699 90)
 			(effects
 				(font
@@ -6934,7 +6994,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "JP?")
+					(reference "JP4")
 					(unit 1)
 				)
 			)
@@ -7077,6 +7137,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 115.57 158.75 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "203893d3-2307-4c30-bb7f-fe67b0ebe510")
+		(property "Reference" "H4"
+			(at 118.11 157.4799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 118.11 160.0199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 115.57 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 115.57 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 115.57 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
+					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 31.75 88.9 270)
 		(unit 1)
@@ -7086,7 +7210,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "24c0b4f4-b0d8-42de-90f2-388e3fce89c1")
-		(property "Reference" "SW1"
+		(property "Reference" "SW4"
 			(at 35.56 87.6299 90)
 			(effects
 				(font
@@ -7140,7 +7264,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "SW1")
+					(reference "SW4")
 					(unit 1)
 				)
 			)
@@ -7353,6 +7477,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Potentiometer")
+		(at 262.89 26.67 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(uuid "2dad2fc5-58d2-4327-ae0a-5ccd77cfbf32")
+		(property "Reference" "RV2"
+			(at 265.43 25.3999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+		(property "Value" "5K"
+			(at 265.43 27.9399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Potentiometer_THT:Potentiometer_ACP_CA14V-15_Vertical"
+			(at 262.89 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 262.89 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Potentiometer"
+			(at 262.89 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e2960dd8-6b2f-4e4f-9023-28d9c4cde1ec")
+		)
+		(pin "1"
+			(uuid "2fc6a535-1cb5-4575-9d7e-af360d2ed785")
+		)
+		(pin "3"
+			(uuid "ba6bef79-ffc5-4e3d-86ec-ec0efa6f9528")
+		)
+		(instances
+			(project "ESP8266-Sentinel-Kinetic-Wired-Remote"
+				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
+					(reference "RV2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Regulator_Linear:AMS1117-3.3")
 		(at 36.83 24.13 0)
 		(unit 1)
@@ -7433,7 +7633,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3646b3a3-c3b7-4e54-9638-65603a15cf07")
-		(property "Reference" "U?"
+		(property "Reference" "U4"
 			(at 200.2633 31.75 0)
 			(effects
 				(font
@@ -7541,7 +7741,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "U?")
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -7872,6 +8072,119 @@
 			(project "ESP8266-Sentinel-Kinetic-Wired-Remote"
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
 					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Display_Character:WC1602A")
+		(at 233.68 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "47fd6be2-ebb1-4b4a-9d4b-2cc3565ae74a")
+		(property "Reference" "DS1"
+			(at 235.8233 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "WC1602A"
+			(at 235.8233 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Display:WC1602A"
+			(at 233.68 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.wincomlcd.com/pdf/WC1602A-SFYLYHTC06.pdf"
+			(at 251.46 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LCD 16x2 Alphanumeric , 8 bit parallel bus, 5V VDD"
+			(at 233.68 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "0598261d-2496-450c-9749-595413375773")
+		)
+		(pin "4"
+			(uuid "0ad4d380-fdd7-4eab-bf7d-398e638cb8ba")
+		)
+		(pin "7"
+			(uuid "270a9049-9be6-4b97-8660-10bb9ad1be9b")
+		)
+		(pin "9"
+			(uuid "9185d5ec-5a0b-45d6-b883-bdc16ce9a24a")
+		)
+		(pin "10"
+			(uuid "d2c8eb0b-a282-4d32-be1b-86f7989f00b2")
+		)
+		(pin "11"
+			(uuid "807e9936-3493-4c25-a324-317ee231736c")
+		)
+		(pin "12"
+			(uuid "3eed434e-f690-486d-b842-302ab3c4ce7f")
+		)
+		(pin "13"
+			(uuid "cf7e848f-e27e-4eb0-b926-ff42256cafe5")
+		)
+		(pin "14"
+			(uuid "6210f092-cad4-47a2-866c-7e5f6b8a6815")
+		)
+		(pin "2"
+			(uuid "292adb4f-2bf5-4264-8fc3-9a22d4af7a5c")
+		)
+		(pin "1"
+			(uuid "8b0315f4-bbad-4c3f-866b-557ca9182e4e")
+		)
+		(pin "3"
+			(uuid "44befefe-aa99-4fac-9862-61ebed161efc")
+		)
+		(pin "15"
+			(uuid "e81dd3f9-11c9-49a2-b45d-7de02ae4f6b7")
+		)
+		(pin "16"
+			(uuid "dc64ba7f-5883-4b8a-9811-9922743abe06")
+		)
+		(pin "8"
+			(uuid "242d629e-a7ae-45af-8940-9464c3bd67bb")
+		)
+		(pin "6"
+			(uuid "0ca1275b-8c20-4a5d-a8d3-0051fae860ee")
+		)
+		(instances
+			(project ""
+				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
+					(reference "DS1")
 					(unit 1)
 				)
 			)
@@ -8839,7 +9152,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "671fe980-e854-4a6d-80d2-d77929c7d502")
-		(property "Reference" "Q?"
+		(property "Reference" "Q1"
 			(at 255.27 80.0099 0)
 			(effects
 				(font
@@ -8899,7 +9212,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "Q?")
+					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -9248,9 +9561,9 @@
 		(at 53.34 109.22 180)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "89d1afab-c8c0-484b-ac9a-fcba06b105ce")
 		(property "Reference" "J1"
@@ -10128,6 +10441,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 115.57 168.91 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a195ddcd-7f1b-4cd1-9e23-4fbfa0e75aac")
+		(property "Reference" "H2"
+			(at 118.11 167.6399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 118.11 170.1799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 115.57 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 115.57 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 115.57 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "ESP8266-Sentinel-Kinetic-Wired-Remote"
+				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 251.46 86.36 0)
 		(unit 1)
@@ -10198,12 +10575,12 @@
 		(at 87.63 109.22 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "a584771e-53f4-4fe2-ae16-5ff9381366e3")
-		(property "Reference" "J?"
+		(property "Reference" "J3"
 			(at 88.265 99.06 0)
 			(effects
 				(font
@@ -10267,7 +10644,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "J?")
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -10476,6 +10853,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 115.57 163.83 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "aef2567b-4340-4426-bd3b-0b59d6b2e26b")
+		(property "Reference" "H1"
+			(at 118.11 162.5599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 118.11 165.0999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
+			(at 115.57 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 115.57 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 115.57 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "ESP8266-Sentinel-Kinetic-Wired-Remote"
+				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
+					(reference "H1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 20.32 88.9 0)
 		(unit 1)
@@ -10555,7 +10996,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bb4d32b5-2dc7-4deb-a069-b221afe23410")
-		(property "Reference" "SW4"
+		(property "Reference" "SW1"
 			(at 57.15 129.5399 90)
 			(effects
 				(font
@@ -10609,7 +11050,7 @@
 		(instances
 			(project "ESP8266-Sentinel-Kinetic-Wired-Remote"
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "SW4")
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -10762,7 +11203,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c0fcd099-3f36-435d-ace6-06bda665e4ff")
-		(property "Reference" "RV?"
+		(property "Reference" "RV1"
 			(at 265.43 25.3999 0)
 			(effects
 				(font
@@ -10780,7 +11221,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_ACP_CA14V-15_Vertical"
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Runtron_RM-065_Vertical"
 			(at 262.89 26.67 0)
 			(effects
 				(font
@@ -10819,7 +11260,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "RV?")
+					(reference "RV1")
 					(unit 1)
 				)
 			)
@@ -10967,7 +11408,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c3c814fa-f25a-4736-ad3d-baa62fe3424f")
-		(property "Reference" "JP?"
+		(property "Reference" "JP3"
 			(at 163.83 58.4199 90)
 			(effects
 				(font
@@ -11021,7 +11462,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "JP?")
+					(reference "JP3")
 					(unit 1)
 				)
 			)
@@ -11767,7 +12208,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e8969fa6-ad0f-425b-838c-1b26f711556e")
-		(property "Reference" "U?"
+		(property "Reference" "U3"
 			(at 193.9133 97.79 0)
 			(effects
 				(font
@@ -11864,7 +12305,7 @@
 		(instances
 			(project ""
 				(path "/263bb0f9-3858-495c-8bcf-b65dad96e4de"
-					(reference "U?")
+					(reference "U3")
 					(unit 1)
 				)
 			)
