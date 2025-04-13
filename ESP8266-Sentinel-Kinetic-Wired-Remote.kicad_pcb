@@ -1839,7 +1839,7 @@
 				)
 			)
 		)
-		(property "Value" "5K"
+		(property "Value" "10K"
 			(at 7.5 3.25 0)
 			(layer "F.Fab")
 			(uuid "0371bdac-4f4f-432f-a3a3-d28e249f9ebe")
@@ -2245,7 +2245,7 @@
 				)
 			)
 		)
-		(property "Value" "5K"
+		(property "Value" "10K"
 			(at 2.6 7.4 90)
 			(layer "F.Fab")
 			(uuid "7e75d649-d7ec-4efb-b102-0dcae6ce8ce4")
@@ -2299,7 +2299,7 @@
 		(path "/c0fcd099-3f36-435d-ace6-06bda665e4ff")
 		(sheetname "/")
 		(sheetfile "ESP8266-Sentinel-Kinetic-Wired-Remote.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom)
 		(fp_line
 			(start 1.99 5.81)
 			(end 0.5 5.81)
@@ -5753,7 +5753,7 @@
 		(path "/24c0b4f4-b0d8-42de-90f2-388e3fce89c1")
 		(sheetname "/")
 		(sheetfile "ESP8266-Sentinel-Kinetic-Wired-Remote.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom)
 		(fp_line
 			(start -0.25 1.5)
 			(end -0.25 3)
@@ -6091,6 +6091,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C2150"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0c98724b-971c-4188-9742-6c53e27e32c6")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -7337,7 +7350,7 @@
 		(path "/15d2e545-d7aa-4981-9b32-75088d4c7956")
 		(sheetname "/")
 		(sheetfile "ESP8266-Sentinel-Kinetic-Wired-Remote.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom)
 		(fp_line
 			(start -2.22 -3.52)
 			(end -2.22 3.72)
@@ -9879,7 +9892,7 @@
 		(path "/d1c7ebdf-e0c0-4576-8ec0-2b9711970b24")
 		(sheetname "/")
 		(sheetfile "ESP8266-Sentinel-Kinetic-Wired-Remote.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom)
 		(fp_line
 			(start 6.75 -3)
 			(end 6.75 -1.5)
@@ -10532,7 +10545,7 @@
 		(path "/56d06c4b-531a-43a3-83b0-c1bc8a230643")
 		(sheetname "/")
 		(sheetfile "ESP8266-Sentinel-Kinetic-Wired-Remote.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom)
 		(fp_line
 			(start 6.75 -3)
 			(end 6.75 -1.5)
@@ -11185,7 +11198,7 @@
 		(path "/ec571cda-842b-4b60-b090-31d498251d43")
 		(sheetname "/")
 		(sheetfile "ESP8266-Sentinel-Kinetic-Wired-Remote.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom)
 		(fp_line
 			(start 6.75 -3)
 			(end 6.75 -1.5)
@@ -11838,7 +11851,7 @@
 		(path "/bb4d32b5-2dc7-4deb-a069-b221afe23410")
 		(sheetname "/")
 		(sheetfile "ESP8266-Sentinel-Kinetic-Wired-Remote.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom)
 		(fp_line
 			(start 6.75 -3)
 			(end 6.75 -1.5)
@@ -12205,7 +12218,7 @@
 		(path "/47fd6be2-ebb1-4b4a-9d4b-2cc3565ae74a")
 		(sheetname "/")
 		(sheetfile "ESP8266-Sentinel-Kinetic-Wired-Remote.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom)
 		(fp_line
 			(start -8.14 -33.64)
 			(end 72.14 -33.64)
