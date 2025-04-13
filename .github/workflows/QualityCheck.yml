@@ -30,13 +30,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Checkout submodules
-      uses: actions/checkout@v4
-      with:
-        repository: FutureProofHomes/Kicad-Libraries
-        token: ${{ secrets.ORG_WIDE_READ_TOKEN }}
-        path: Kicad-Libraries
-        persist-credentials: true
 
     # - name: Set variables in files
     #   id: SetOutputStrings
