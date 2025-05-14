@@ -54,7 +54,7 @@ jlcpcb
 # Exported SVG files
 *.svg
 # Exported PDFs
-*.pdf
+# *.pdf
 # Pick and place files
 *.pos
 # CSV output files
