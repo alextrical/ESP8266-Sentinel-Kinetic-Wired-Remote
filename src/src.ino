@@ -1,9 +1,10 @@
 /*
-** Vent-Axia Remote Control using ESP8266
+** Vent-Axia Remote Control using ESP8266 with output over WiFi TCP - Linix command [ nc IP_ADDRESS PORT ]
 ** Converted from PIC16F627A version with PCF8574 LCD adapter
 */
 // Original: ©2021 bmd (brian@brianmarchant.com)
 // ESP8266 conversion: 2025
+// WiFi connection: 2025
 
 //Requires the folowing Libraries to be installed:
 //LiquidCrystal_PCF8574 V2.2.0
@@ -16,6 +17,24 @@
 // *****************************************************************************
 #include <Wire.h>
 #include <LiquidCrystal_PCF8574.h>
+
+#include <ESP8266WiFi.h>
+#include <ESP8266mDNS.h>
+#include <ESP8266WebServer.h>
+
+// *****************************************************************************
+// WiFi, TCP and Web
+// *****************************************************************************
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+// TCP server for raw Serial relay
+WiFiServer tcpServer(8080);
+WiFiClient clients[5];
+
+
+// Web server
+ESP8266WebServer webServer(80);
 
 // *****************************************************************************
 // PIN DEFINITIONS
@@ -61,8 +80,8 @@ bool data_read;
 uint8_t i;
 
 uint8_t uart_chr;
-char oled_chr;
-char oled_pos;
+char lcd_chr;
+char lcd_pos;
 bool line1_active;
 bool line2_active;
 
@@ -93,6 +112,8 @@ uint8_t alive_str[] = {0x04, 0x06, 0xFF, 0xFF, 0xFF, 0x10, 0xFC, 0xE8, '\0'};
 uint8_t btn_press_str[] = {0x04, 0x06, 0xFF, 0xFF, 0xFF, BTN_STATE_PLACEHOLDER, 0xFC, CRC_PLACEHOLDER, '\0'};
 uint8_t btn_byte;
 
+
+
 // Initialize LCD with PCF8574 I2C port expander
 LiquidCrystal_PCF8574 lcd(LCD_I2C_ADDR);
 
@@ -100,8 +121,27 @@ LiquidCrystal_PCF8574 lcd(LCD_I2C_ADDR);
 // FUNCTIONS
 // *****************************************************************************
 
-// Write the two lines of text to the OLED display.
-void update_oled(void)
+// WiFi WebServer Handler
+void handleRoot() {
+  String html = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\">";
+  html += "<title>ESP8266 Serial Relay</title>";
+
+  html += "<style>body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }";
+  html += "h1 { color: #0099ff; }";
+  html += "p { font-size: 1.1em; }";
+  html += "</style></head><body>";
+
+  html += "<h1>ESP8266 Serial Relay</h1>";
+
+  html += "<p>This device is acting as a Wi-Fi bridge for Serial data on IP4 address : " + WiFi.localIP().toString() + "</p>";
+  html += "<p>Use TCP on port 8080 to receive data, for example Linux command <strong>[ nc esp8266.local 8080 ]</strong>, or  <strong>[ nc " + WiFi.localIP().toString() + " 8080 ]</strong></p>";
+
+  html += "</body></html>";
+  webServer.send(200, "text/html", html);
+}
+
+// Write the two lines of text to the display.
+void update_lcd(void)
 {
     // Overwrite the display with an indication of button long-press
     // and a hint to move to the top menu item for them to be effective.
@@ -161,6 +201,10 @@ bool uart_tx_idle() {
 // *****************************************************************************
 void setup()
 {
+        
+    // Initialize Hardware UART module (the link to the MVHR unit).
+    Serial.begin(9600);
+
     // Initialize I2C
     Wire.begin();
     
@@ -169,22 +213,66 @@ void setup()
     lcd.setBacklight(255); // Turn on backlight
     lcd.home();
     lcd.clear();
-    
-    // Initialize Hardware UART module (the link to the MVHR unit).
-    Serial.begin(9600);
-    
-    lcd.setCursor(0, 0);
-    lcd.print("VENT-AXIA Remote");
-    lcd.setCursor(0, 1);
-    lcd.print("V1.0 ESP");
-    
-    // Show that the display is active with a little animation.
+    lcd.print("boot up");
+
+        // Show that the display is active with a little animation.
     for (i = 10; i <= 16; i++) {
         lcd.setCursor(i-1, 1);
         lcd.print(".");
         delay(300);
     }
     delay(1000);
+    
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("VENT-AXIA Remote");
+    lcd.setCursor(0, 1);
+    lcd.print("V2.0 ESP-WiFi");
+        delay(5000); // display opening page for 5 seconds
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("WiFi");
+        
+    // Connect to Wi-Fi
+    WiFi.begin(ssid, password);
+    unsigned long startAttemptTime = millis();
+    const unsigned long wifiTimeout = 20000; // 20 seconds
+    while (WiFi.status() != WL_CONNECTED && millis() - startAttemptTime < wifiTimeout) {
+        lcd.print(".");
+        delay(500);
+    }
+
+    lcd.clear();
+    lcd.setCursor(0, 0);   
+    if (millis() - startAttemptTime < wifiTimeout) {
+        lcd.print("\nWiFi connected");
+        delay(3000); // display for 3 seconds
+
+        lcd.clear();
+        lcd.setCursor(0, 0);   
+        lcd.print("esp8266.local or");
+        lcd.setCursor(0, 1);
+        lcd.print(WiFi.localIP());
+    }
+    else {
+        lcd.print("WiFi Connection timed out");
+    }
+    delay(5000); // display for 5 seconds
+
+    // Start TCP server
+    tcpServer.begin();           // <-- Use your global instance
+    tcpServer.setNoDelay(true);  // Optional: disables Nagle's algorithm
+
+
+    // Start Web server
+    webServer.on("/", handleRoot);
+    webServer.begin();
+
+    // Start mDNS responder
+    if (MDNS.begin("esp8266")) {
+        // Optional: Add services like "_telnet" or "_http"
+        MDNS.addService("telnet", "tcp", 80); // Just a name tag
+    }
     
     // Send an "alive" message to the MVHR unit:
     uart_write_text(alive_str);
@@ -207,7 +295,7 @@ void setup()
     // Initialise the character counters.
     line1_active = false;
     line2_active = false;
-    oled_pos = 0;
+    lcd_pos = 0;
 }
 
 // *****************************************************************************
@@ -215,50 +303,98 @@ void setup()
 // *****************************************************************************
 void loop()
 {
+      // Handle mDNS
+      MDNS.update();
+
+      // Handle web
+      webServer.handleClient();
+
+      // Handle TCP clients
+      if (tcpServer.hasClient()) {
+        for (int i = 0; i < 5; i++) {
+          if (!clients[i] || !clients[i].connected()) {
+            if (clients[i]) clients[i].stop();
+            clients[i] = tcpServer.available();
+            if (clients[i]) {
+              clients[i].println("Connected to ESP8266");
+            }
+            break;
+          }
+        }
+
+        WiFiClient unused = tcpServer.available();
+        if (unused) unused.stop();
+      }
+
+  // Remove disconnected clients
+  for (int i = 0; i < 5; i++) {
+    if (clients[i] && !clients[i].connected()) {
+      clients[i].stop();
+    }
+  }
+
     //
     // Priority 1 : Check for characters received from the MVHR unit.
     //
     if (Serial.available()) {
         uart_chr = Serial.read();
         data_read = true;
-        
+
+    // Send to Wifi clients
+    // Serial to WiFi
+        for (int i = 0; i < 5; i++) {
+          if (clients[i] && clients[i].connected()) {
+            char hexStr[4]; // 2 hex digits + space + null terminator
+            sprintf(hexStr, " %02X ", uart_chr);
+            clients[i].print(hexStr);
+            clients[i].write(uart_chr);
+            clients[i].println();
+          }
+        }
+ 
+// *****************************************************************************
+// MAIN PROGRAM LOOP
+// *****************************************************************************
+
+       
+     // handle the incoming serial stream - send to screen
         switch (uart_chr) {
         case 0x15:
             // NAK - start of line 1
             line1_active = true;
-            oled_pos = 0;
+            lcd_pos = 0;
             break;
 
         case 0x16:
             // SYN - end of line 1, start of line 2
             line2_active = true;
-            oled_pos = 0;
+            lcd_pos = 0;
             break;
 
         default:
             // Record the characters for Line#1 (top)
-            if ((line1_active) && (oled_pos > 0)) {
-                line1[oled_pos] = uart_chr;
+            if ((line1_active) && (lcd_pos > 0)) {
+                line1[lcd_pos] = uart_chr;
                 
-                if (oled_pos >= 16) {
+                if (lcd_pos >= 16) {
                     line1_active = false;
                 }
             }
             
             // Record the characters for Line#2 (bottom)
-            if ((line2_active) && (oled_pos > 0)) {
-                line2[oled_pos] = uart_chr;
+            if ((line2_active) && (lcd_pos > 0)) {
+                line2[lcd_pos] = uart_chr;
 
-                if (oled_pos >= 16) {
+                if (lcd_pos >= 16) {
                     line2_active = false;
                     
-                    update_oled();
+                    update_lcd();
                 }
             }
             break;
         }
         
-        oled_pos++;
+        lcd_pos++;
     }
     else {
         data_read = false;
